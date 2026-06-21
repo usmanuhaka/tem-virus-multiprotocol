@@ -1,0 +1,5 @@
+protocol,test,train,validation
+A,1900,5740,2249
+B-G14,1903,5735,2251
+A-clean-strict,1900,5732,2249
+C-G09,1937,5640,2312

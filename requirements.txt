@@ -1,0 +1,23 @@
+# Core deep-learning stack used by the notebooks
+torch>=2.0
+torchvision>=0.15
+timm>=0.9.16
+
+# Data, metrics, plotting
+numpy>=1.24
+pandas>=2.0
+scikit-learn>=1.3
+scipy>=1.10
+matplotlib>=3.7
+seaborn>=0.12
+pillow>=9.5
+
+# Near-duplicate detection / image hashing used in Phase 1
+imagehash>=4.3
+
+# Notebook tooling
+jupyter>=1.0
+tqdm>=4.65
+
+# Equivariant model (Phase 2; optional)
+# escnn>=1.0

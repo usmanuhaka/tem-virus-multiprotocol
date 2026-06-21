@@ -1,0 +1,5 @@
+protocol,baseline_denseNet201_accuracy,densenet201_tta_mixup_accuracy,effnetv2s_tta_mixup_accuracy,ensemble_accuracy,baseline_denseNet201_macro_f1,densenet201_tta_mixup_macro_f1,effnetv2s_tta_mixup_macro_f1,ensemble_macro_f1,ensemble_best_seed_accuracy,strategies_used
+A,0.9585 ± 0.0091,0.9697 ± 0.0053,0.9651 ± 0.0087,0.9709 ± 0.0052,0.9504 ± 0.0100,0.9598 ± 0.0083,0.9602 ± 0.0104,0.9640 ± 0.0074,0.9768,"{""geometric_mean"": 3, ""simple_average"": 1, ""max_confidence"": 1}"
+B_G14,0.9589 ± 0.0039,0.9636 ± 0.0055,0.9605 ± 0.0056,0.9663 ± 0.0042,0.9601 ± 0.0043,0.9635 ± 0.0050,0.9615 ± 0.0051,0.9678 ± 0.0041,0.9721,"{""simple_average"": 3, ""max_confidence"": 2}"
+A_clean_strict,0.9612 ± 0.0077,0.9728 ± 0.0034,0.9647 ± 0.0071,0.9716 ± 0.0005,0.9536 ± 0.0116,0.9630 ± 0.0052,0.9586 ± 0.0084,0.9654 ± 0.0019,0.9721,"{""max_confidence"": 2, ""geometric_mean"": 1}"
+C_G09,0.9463 ± 0.0108,0.9596 ± 0.0016,0.9601 ± 0.0021,0.9633 ± 0.0015,0.9229 ± 0.0161,0.9345 ± 0.0032,0.9336 ± 0.0005,0.9398 ± 0.0027,0.9649,"{""geometric_mean"": 2, ""max_confidence"": 1}"

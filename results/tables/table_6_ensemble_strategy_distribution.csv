@@ -1,0 +1,5 @@
+protocol,n_seeds,strategies_used
+A,5,"3× geometric_mean, 1× simple_average, 1× max_confidence"
+B-G14,5,"3× simple_average, 2× max_confidence"
+A-clean-strict,3,"2× max_confidence, 1× geometric_mean"
+C-G09,3,"2× geometric_mean, 1× max_confidence"

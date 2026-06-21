@@ -1,0 +1,4 @@
+method,protocol,accuracy,f1,multi_seed_validation,reported_year
+Matuszewski and Sintorn [1],Original 60/20/20 random crop split,0.9310,0.9210,No,2021
+Sikder et al. [2],Original split,0.9744,0.9744,No,2024
+"Our ensemble, Protocol A","Official split, ensemble",0.9709 ± 0.0052; best seed 0.9768,0.9640 ± 0.0074,"Yes, 5 seeds",This study

@@ -1,0 +1,29 @@
+# Model weights (host on a Release / Zenodo; do not commit large binaries)
+*.pt
+*.pth
+*.onnx
+weights/
+
+# Raw image dataset (obtain from the dataset authors; see data/README.md)
+data/raw/
+*.tif
+*.tiff
+!results/figures/*.png
+
+# Large intermediate arrays
+*.npy
+*.npz
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

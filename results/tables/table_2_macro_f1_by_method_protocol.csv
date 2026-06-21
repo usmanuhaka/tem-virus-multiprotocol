@@ -1,0 +1,5 @@
+protocol,Baseline DN201 mean,Baseline DN201 std,DN201+TTA+mixup mean,DN201+TTA+mixup std,EffNetV2-S+TTA+mixup mean,EffNetV2-S+TTA+mixup std,Ensemble mean,Ensemble std
+A,0.9504,0.01,0.9598,0.0083,0.9602,0.0104,0.964,0.0074
+B-G14,0.9601,0.0043,0.9635,0.005,0.9615,0.0051,0.9678,0.0041
+A-clean-strict,0.9536,0.0116,0.963,0.0052,0.9586,0.0084,0.9654,0.0019
+C-G09,0.9229,0.0161,0.9345,0.0032,0.9336,0.0005,0.9398,0.0027

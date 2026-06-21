@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this code or the derived split manifests, please cite the paper below."
+title: "Multi-Protocol Re-Evaluation of TEM Virus Image Classification with Source-Aware Splits and Ensemble Learning"
+authors:
+  - family-names: "Usmanuhaka"
+    given-names: "Muhammad Haq"
+# Update these fields on acceptance:
+year: 2026
+journal: "Scientific Journal of Informatics (SJI), Universitas Negeri Semarang"
+# doi: "10.15294/sji.vXX.XXXXX"
+# url: "https://journal.unnes.ac.id/journals/sji"
+
+references:
+  - type: article
+    title: "TEM virus images: Benchmark dataset and deep learning classification"
+    authors:
+      - family-names: "Matuszewski"
+        given-names: "Damian J."
+      - family-names: "Sintorn"
+        given-names: "Ida-Maria"
+    journal: "Computer Methods and Programs in Biomedicine"
+    volume: 209
+    year: 2021
+    doi: "10.1016/j.cmpb.2021.106318"

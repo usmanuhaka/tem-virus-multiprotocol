@@ -1,0 +1,13 @@
+{
+  "Protocol A ensemble accuracy mean": 0.9709,
+  "Protocol A ensemble accuracy std": 0.0052,
+  "Protocol A ensemble best seed accuracy": 0.9768,
+  "Lassa F1 A": 0.95,
+  "Lassa F1 B-G14": 0.789,
+  "Lassa drop A_to_B-G14": 0.16099999999999992,
+  "Lassa F1 C-G09": 0.893,
+  "Nipah F1 A": 0.908,
+  "Nipah F1 B-G14": 0.981,
+  "Nipah F1 C-G09": 0.573,
+  "Nipah drop A_to_C-G09": 0.3350000000000001
+}

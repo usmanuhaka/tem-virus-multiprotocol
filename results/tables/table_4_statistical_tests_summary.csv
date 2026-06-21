@@ -1,0 +1,13 @@
+protocol,comparison,n,mean_diff,cohens_d,wilcoxon_p,ci_95
+A,TTA+mixup DN vs Baseline,5,0.0112,0.98,0.125,"[0.0018, 0.0196]"
+A,Ensemble vs Baseline,5,0.0124,1.07,0.125,"[0.0031, 0.0215]"
+A,Ensemble vs TTA+mixup DN,5,0.0013,0.71,0.25,"[-0.0001, 0.0026]"
+B-G14,TTA+mixup DN vs Baseline,5,0.0047,0.51,0.4375,"[-0.0021, 0.0127]"
+B-G14,Ensemble vs Baseline,5,0.0074,0.95,0.125,"[0.0019, 0.0132]"
+B-G14,Ensemble vs TTA+mixup DN,5,0.0026,0.88,0.25,"[0.0004, 0.0048]"
+A-clean-strict,TTA+mixup DN vs Baseline,3,0.0116,2.44,0.25,"[0.0068, 0.0163]"
+A-clean-strict,Ensemble vs Baseline,3,0.0104,1.28,0.25,"[0.0042, 0.0195]"
+A-clean-strict,Ensemble vs TTA+mixup DN,3,-0.0012,-0.32,0.75,"[-0.0042, 0.0032]"
+C-G09,TTA+mixup DN vs Baseline,3,0.0133,1.39,0.25,"[0.0077, 0.0243]"
+C-G09,Ensemble vs Baseline,3,0.017,1.59,0.25,"[0.0103, 0.0294]"
+C-G09,Ensemble vs TTA+mixup DN,3,0.0038,2.91,0.25,"[0.0026, 0.0052]"
