@@ -1,7 +1,7 @@
 """Canonical configuration.
 
 All defaults are the values used by the enhanced ("CP3.6") pipeline in the
-notebooks — the configuration that produced the released DenseNet201 weights and
+notebooks, the configuration that produced the released DenseNet201 weights and
 the headline results. Do not change these if the intent is to reproduce the
 paper; expose them via the YAML configs / CLI flags instead.
 """

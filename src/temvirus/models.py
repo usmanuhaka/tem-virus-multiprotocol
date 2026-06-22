@@ -1,4 +1,4 @@
-"""Model builder — timm, ImageNet-pretrained, 14-class head."""
+"""Model builder, timm, ImageNet-pretrained, 14-class head."""
 from __future__ import annotations
 
 from .config import NUM_CLASSES, timm_name

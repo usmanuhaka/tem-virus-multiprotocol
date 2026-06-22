@@ -1,4 +1,4 @@
-"""temvirus — clean, faithful reimplementation of the multi-protocol TEM virus
+"""temvirus, clean, faithful reimplementation of the multi-protocol TEM virus
 classification pipeline.
 
 This package is the *reproduction code* for the study. It re-expresses, in a

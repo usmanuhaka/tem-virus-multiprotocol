@@ -1,7 +1,7 @@
 # Source-aware split manifests
 
 One row per crop. These define the four evaluation protocols in the paper.
-Images are **not** included — obtain the dataset (Matuszewski & Sintorn, 2021)
+Images are **not** included, obtain the dataset (Matuszewski & Sintorn, 2021)
 and remap the `filepath` column to your local root.
 
 | File | Protocol | train / val / test | Total |
@@ -13,15 +13,15 @@ and remap the `filepath` column to your local root.
 
 ## Columns
 
-- `filepath` — original Colab path to the `.tif` crop (remap to your root).
-- `filename` — crop file name.
-- `class_name` — virus class (14 total).
-- `label_id` — integer id 0–13, alphabetical: 0 Adenovirus, 1 Astrovirus,
+- `filepath`, original Colab path to the `.tif` crop (remap to your root).
+- `filename`, crop file name.
+- `class_name`, virus class (14 total).
+- `label_id`, integer id 0-13, alphabetical: 0 Adenovirus, 1 Astrovirus,
   2 CCHF, 3 Cowpox, 4 Ebola, 5 Influenza, 6 Lassa, 7 Marburg, 8 Nipah virus,
   9 Norovirus, 10 Orf, 11 Papilloma, 12 Rift Valley, 13 Rotavirus.
-- `split` — `train` / `validation` / `test`.
-- `raw_source_id` — originating RAW source image id.
-- `G14_RAWSource`, `G09_Date_Magnification`, `group_id` — grouping keys for the
+- `split`, `train` / `validation` / `test`.
+- `raw_source_id`, originating RAW source image id.
+- `G14_RAWSource`, `G09_Date_Magnification`, `group_id`, grouping keys for the
   source-aware splits (column names vary by manifest).
 
 ## Why source-aware splits

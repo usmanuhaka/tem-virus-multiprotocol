@@ -1,7 +1,7 @@
 """Protocol definitions and manifest validation.
 
 The four protocols are produced in notebook 01 and *shipped as the manifests*
-under ``data/splits/`` — those CSVs are the canonical, version-controlled split
+under ``data/splits/``, those CSVs are the canonical, version-controlled split
 definitions. This module documents each protocol and validates a manifest for
 the leakage properties it should satisfy (it does not re-derive splits from the
 raw dataset).
@@ -81,7 +81,7 @@ def validate_manifest(path: str | Path, protocol: str) -> Dict[str, object]:
 
     # crop-level leakage: the same physical crop (unique full filepath) must not
     # appear in more than one split. (Note: bare filenames repeat across source
-    # images, so they are NOT a valid uniqueness key — filepath is.)
+    # images, so they are NOT a valid uniqueness key, filepath is.)
     dup = int((df.groupby("filepath")["split"].nunique() > 1).sum())
     report["filepath_split_overlaps"] = dup
     if dup > 0:

@@ -1,4 +1,4 @@
-# Streamlit demo — TEM Virus Classifier
+# Streamlit demo: TEM Virus Classifier
 
 Single-model inference for the **DenseNet201 + TTA + mixup** classifier
 (Protocol A). Upload a TEM crop; the app returns the predicted virus class and
@@ -9,22 +9,20 @@ top-K probabilities using 4-view test-time augmentation.
 ```bash
 pip install -r requirements.txt
 
-# Option A: put the file in ./weights/best.pt (default path is ../weights/best.pt)
-export WEIGHTS_PATH=../weights/best.pt
+# Option A: local checkpoint (the app's default WEIGHTS_PATH is weights/best.pt)
+export WEIGHTS_PATH=weights/best.pt
 
 # Option B: auto-download from a URL on first run
-export WEIGHTS_URL="https://<your-release-or-zenodo>/best.pt"
+export WEIGHTS_URL="https://github.com/usmanuhaka/tem-virus-multiprotocol/releases/download/v1.0.0/best.pt"
 
 streamlit run streamlit_app.py
 ```
-
-You can also set the weights path directly in the app sidebar.
 
 ## Inference details (must match training)
 
 - Model: `timm.create_model("densenet201", num_classes=14)`
 - Input: 224×224, ImageNet mean/std normalization
-- TTA: original, horizontal flip, vertical flip, and both — softmax averaged
+- TTA: four views (original, horizontal flip, vertical flip, both), softmax-averaged
 - Checkpoint: a dict containing `model_state_dict` (the loader also accepts a
   raw `state_dict` or a `state_dict` key, and strips a `module.` prefix)
 
@@ -34,13 +32,13 @@ Rotavirus.
 
 ## Hosting the weights
 
-`best.pt` is ~74 MB — too large for a normal git commit. Recommended options:
+`best.pt` is ~74 MB, too large for a normal git commit. Recommended options:
 
-- **GitHub Release asset** — attach `best.pt` to a tagged release; use its URL
+- **GitHub Release asset:** attach `best.pt` to a tagged release; use its URL
   in `WEIGHTS_URL`.
-- **Hugging Face Hub** — upload to a model repo and download with
+- **Hugging Face Hub:** upload to a model repo and download with
   `huggingface_hub.hf_hub_download`.
-- **Zenodo** — gives a citable DOI for the weights.
+- **Zenodo:** a citable DOI for the weights.
 
 ## Deploy on Streamlit Community Cloud
 

@@ -1,13 +1,13 @@
-# Notebooks — experimental record (research log)
+# Notebooks: experimental record (research log)
 
 > **These notebooks are the experimental record, not the reproduction entry
-> point.** They document the full research process — exploration, configuration
-> trials, checkpoint/resume and recovery steps, and stale intermediate outputs —
+> point.** They document the full research process (exploration, configuration
+> trials, checkpoint/resume and recovery steps, and stale intermediate outputs),
 > and they are coupled to Google Colab + Google Drive paths. They are **not**
 > intended to run end-to-end with *Run All* from a clean environment.
 >
 > To reproduce the results, use the clean, deterministic pipeline under
-> [`../src/temvirus/`](../src/temvirus) + [`../scripts/`](../scripts) — see
+> [`../src/temvirus/`](../src/temvirus) + [`../scripts/`](../scripts). See
 > [`../REPRODUCE.md`](../REPRODUCE.md). That code re-expresses the **same** method
 > (model, augmentation, schedule, mixup, TTA, ensemble, statistics) and the same
 > hyperparameters, and produces the same numbers.

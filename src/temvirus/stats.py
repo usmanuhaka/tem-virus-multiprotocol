@@ -1,4 +1,4 @@
-"""Paired statistical comparisons — ported verbatim from the stats cells.
+"""Paired statistical comparisons, ported verbatim from the stats cells.
 
 For each protocol and each comparison (TTA+mixup-DN vs baseline, ensemble vs
 baseline, ensemble vs TTA+mixup-DN), the per-seed accuracy differences feed a

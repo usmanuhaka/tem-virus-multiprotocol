@@ -1,4 +1,4 @@
-"""Softmax ensemble — combination strategies and validation-based selection.
+"""Softmax ensemble, combination strategies and validation-based selection.
 
 Ported verbatim from the CP3.6 ensemble cells. Six strategies are evaluated on
 the validation split; the one with the highest validation macro-F1 is applied to

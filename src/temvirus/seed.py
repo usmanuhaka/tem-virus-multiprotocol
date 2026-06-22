@@ -1,4 +1,4 @@
-"""Deterministic seeding — ported verbatim from the notebooks."""
+"""Deterministic seeding, ported verbatim from the notebooks."""
 from __future__ import annotations
 
 import os

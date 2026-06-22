@@ -1,4 +1,4 @@
-"""Classification metrics — ported verbatim (sklearn, macro/weighted)."""
+"""Classification metrics, ported verbatim (sklearn, macro/weighted)."""
 from __future__ import annotations
 
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score

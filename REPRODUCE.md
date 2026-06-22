@@ -5,8 +5,8 @@ This document is the **reproduction entry point**. The two notebooks under
 exploration, configuration trials, recovery/resume steps, and stale outputs, and
 they are tied to Google Colab + Google Drive paths, so they are **not** intended
 to be run end-to-end with *Run All*. The code under `src/temvirus/` and
-`scripts/` re-expresses the **same** method — same model, augmentation,
-schedule, mixup, TTA, ensemble, and statistics — in a structured, deterministic,
+`scripts/` re-expresses the **same** method, same model, augmentation,
+schedule, mixup, TTA, ensemble, and statistics, in a structured, deterministic,
 Colab-free form. No hyperparameter or result is changed.
 
 ## What runs where
@@ -85,7 +85,7 @@ python scripts/ensemble.py --protocol A --seed 42 \
 
 Six strategies (simple average, val-F1-weighted, geometric mean, max-confidence,
 and each single model) are scored on validation; the best by macro-F1 is applied
-to the test split — exactly the selection rule used in the paper.
+to the test split, exactly the selection rule used in the paper.
 
 ## 5. Statistics
 

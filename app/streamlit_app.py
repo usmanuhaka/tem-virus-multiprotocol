@@ -1,5 +1,5 @@
 """
-TEM Virus Classifier — Streamlit demo
+TEM Virus Classifier, Streamlit demo
 =====================================
 
 Single-model inference demo for the DenseNet201 + TTA + mixup classifier from
@@ -29,7 +29,7 @@ import streamlit as st
 from PIL import Image
 
 # --------------------------------------------------------------------------- #
-# Configuration — must match the training pipeline
+# Configuration, must match the training pipeline
 # --------------------------------------------------------------------------- #
 CLASS_NAMES = [
     "Adenovirus", "Astrovirus", "CCHF", "Cowpox", "Ebola", "Influenza",
@@ -125,7 +125,7 @@ def render_header() -> None:
         f'<div class="app-rule"></div>'
         f'<h1 class="app-title">TEM Virus Classifier</h1>'
         f'<p class="app-subtitle">Deep-learning identification of viruses in transmission '
-        f'electron microscopy images across 14 species — a research demonstration of the '
+        f'electron microscopy images across 14 species, a research demonstration of the '
         f'DenseNet201 model from the multi-protocol re-evaluation study.</p>'
         f'<div class="chips">{chip_html}</div>'
         f'</div>',
@@ -141,7 +141,7 @@ def render_specimen(image: Image.Image | None = None, name: str | None = None) -
             '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#6c7a77" '
             'stroke-width="1.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/>'
             '<line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>'
-            '<div class="empty-t">No specimen loaded — upload a TEM crop to preview it here.</div>'
+            '<div class="empty-t">No specimen loaded. Upload a TEM crop to preview it here.</div>'
             '</div></div>',
             unsafe_allow_html=True,
         )
@@ -165,7 +165,7 @@ def render_empty_result() -> None:
         '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#6c7a77" '
         'stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">'
         '<path d="M3 12h4l3 8 4-16 3 8h4"/></svg>'
-        '<div class="empty-t">Awaiting a specimen — class probabilities will appear here after upload.</div>'
+        '<div class="empty-t">Awaiting a specimen. Class probabilities will appear here after upload.</div>'
         '</div></div>',
         unsafe_allow_html=True,
     )
@@ -205,7 +205,7 @@ def render_prediction(probs: np.ndarray, top_k: int = 5) -> None:
     )
 
 
-def render_model_card(device_label: str = "—") -> None:
+def render_model_card(device_label: str = "-") -> None:
     rows = [
         ("Architecture", "DenseNet201 (timm)", False),
         ("Parameters", "≈ 20 M", False),
@@ -245,11 +245,11 @@ def render_supported_classes() -> None:
 
 def render_disclaimer() -> None:
     st.markdown(
-        '<div class="note"><div class="note-title">Research demonstration — not for diagnosis</div>'
+        '<div class="note"><div class="note-title">Research demonstration, not for diagnosis</div>'
         '<p>This tool is a research demonstration, not a medical device, and must not inform '
         'clinical or diagnostic decisions. The model only recognizes the 14 virus classes in its '
-        'training corpus; out-of-distribution inputs — other species, multi-particle fields, scale '
-        'bars, or annotations — are still forced into one of these classes and will be unreliable.</p>'
+        'training corpus; out-of-distribution inputs (other species, multi-particle fields, scale '
+        'bars, or annotations) are still forced into one of these classes and will be unreliable.</p>'
         '</div>',
         unsafe_allow_html=True,
     )
@@ -295,7 +295,7 @@ def device_label(model) -> str:
     try:
         return "GPU (CUDA)" if next(model.parameters()).device.type == "cuda" else "CPU"
     except Exception:  # noqa: BLE001
-        return "—"
+        return "-"
 
 
 def predict(model, image: Image.Image) -> np.ndarray:
@@ -351,12 +351,12 @@ def get_model():
             with st.spinner("Fetching model weights…"):
                 _download_weights(url, path)
         if not Path(path).exists():
-            return None, "—", "weights-missing"
+            return None, "-", "weights-missing"
         with st.spinner("Loading model…"):
             model = load_model(path)
         return model, device_label(model), None
     except Exception as exc:  # noqa: BLE001
-        return None, "—", str(exc)
+        return None, "-", str(exc)
 
 
 # --------------------------------------------------------------------------- #
@@ -377,7 +377,7 @@ def main() -> None:
     st.markdown(
         '<div class="eyebrow">Input image</div>'
         '<p style="margin:-.15rem 0 .55rem 0;color:#6c7a77;font-size:.9rem">'
-        'Drag a TEM micrograph crop — a single particle works best. '
+        'Drag a TEM micrograph crop, a single particle works best. '
         'Grayscale or RGB; TIF, PNG, or JPG.</p>',
         unsafe_allow_html=True,
     )

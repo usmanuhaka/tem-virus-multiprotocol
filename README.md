@@ -5,7 +5,7 @@ Code, source-aware split manifests, and results for the paper:
 > **Multi-Protocol Re-Evaluation of TEM Virus Image Classification with Source-Aware Splits and Ensemble Learning**
 > Muhammad Haq Usmanuhaka. *Scientific Journal of Informatics (SJI)*, Universitas Negeri Semarang, 2026 (under review).
 
-**Links:** [Live demo](https://temvirusmultiprotocol.streamlit.app) · [Model weights — Release v1.0.0](https://github.com/usmanuhaka/tem-virus-multiprotocol/releases/tag/v1.0.0) · [Dataset — Mendeley Data](https://doi.org/10.17632/x4dwwfwtw3.3)
+**Links:** [Live demo](https://temvirusmultiprotocol.streamlit.app) · [Model weights (Release v1.0.0)](https://github.com/usmanuhaka/tem-virus-multiprotocol/releases/tag/v1.0.0) · [Dataset (Mendeley Data)](https://doi.org/10.17632/x4dwwfwtw3.3)
 
 This project re-evaluates transmission electron microscopy (TEM) virus image
 classification on the public Matuszewski & Sintorn corpus. The standard random
@@ -97,11 +97,11 @@ It contains 14 virus classes; this project uses the
 `context_virus_1nm_256x256` crops.
 
 This repository ships only the **split manifests**, not the images. Download the
-images from **Mendeley Data** —
-[data.mendeley.com/datasets/x4dwwfwtw3](https://data.mendeley.com/datasets/x4dwwfwtw3/3)
-([doi:10.17632/x4dwwfwtw3.3](https://doi.org/10.17632/x4dwwfwtw3.3)), governed by
-its own license — then remap the `filepath` column in each manifest to your local
-dataset root.
+images from **Mendeley Data**
+([data.mendeley.com/datasets/x4dwwfwtw3](https://data.mendeley.com/datasets/x4dwwfwtw3/3),
+[doi:10.17632/x4dwwfwtw3.3](https://doi.org/10.17632/x4dwwfwtw3.3)). The dataset is
+governed by its own license. Then remap the `filepath` column in each manifest to
+your local dataset root.
 
 ### Split manifest columns
 
@@ -109,10 +109,10 @@ Each `data/splits/*.csv` has one row per crop:
 
 | Column | Meaning |
 |---|---|
-| `filepath` | Original (Colab) path to the `.tif` crop — remap to your local dataset root. |
+| `filepath` | Original (Colab) path to the `.tif` crop, remap to your local dataset root. |
 | `filename` | Crop file name. |
 | `class_name` | Virus class (one of 14). |
-| `label_id` | Integer class id, 0–13, alphabetical (0 = Adenovirus … 13 = Rotavirus). |
+| `label_id` | Integer class id, 0-13, alphabetical (0 = Adenovirus … 13 = Rotavirus). |
 | `split` | `train` / `validation` / `test`. |
 | `raw_source_id` | Identifier of the originating RAW source image. |
 | `G14_RAWSource` / `G09_Date_Magnification` | Grouping keys used to build source-aware splits. |
@@ -124,7 +124,7 @@ Each `data/splits/*.csv` has one row per crop:
 This repository separates the **reproduction code** from the **experimental
 record**:
 
-- **Reproduction code — [`src/temvirus/`](src/temvirus) + [`scripts/`](scripts)**
+- **Reproduction code** ([`src/temvirus/`](src/temvirus) + [`scripts/`](scripts))
   is the entry point: a clean, deterministic, Colab-free reimplementation of the
   exact method (model, augmentation, warm-restart schedule, mixup, 4-view TTA,
   softmax ensemble, statistics), with no change to any hyperparameter or result.
@@ -139,7 +139,7 @@ record**:
   python scripts/stats.py    --seed-level results/summaries/CP4_ensemble_seed_level.csv --out results/summaries/statistical_tests_results.csv
   ```
 
-- **Experimental record — [`notebooks/`](notebooks)** is the research log
+- **Experimental record** ([`notebooks/`](notebooks)) is the research log
   (exploration, recovery/resume, stale outputs) and is coupled to Colab/Drive
   paths; it is **not** meant to run end-to-end with *Run All*. See
   [`notebooks/README.md`](notebooks/README.md).

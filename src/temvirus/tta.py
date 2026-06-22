@@ -1,4 +1,4 @@
-"""4-view test-time augmentation — ported verbatim from CP3.6.
+"""4-view test-time augmentation, ported verbatim from CP3.6.
 
 Views: identity, horizontal flip, vertical flip, both; softmax of each is
 averaged. This is the exact inference setting used for the paper and the demo.

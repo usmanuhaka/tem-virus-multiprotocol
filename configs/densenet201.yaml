@@ -1,4 +1,4 @@
-# DenseNet201 — enhanced (CP3.6) configuration. Values match the notebooks.
+# DenseNet201, enhanced (CP3.6) configuration. Values match the notebooks.
 model: densenet201          # timm: densenet201
 img_size: 224
 batch_size: 32

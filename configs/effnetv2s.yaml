@@ -1,4 +1,4 @@
-# EfficientNetV2-S — enhanced (CP3.6) configuration. Same schedule/augmentation
+# EfficientNetV2-S, enhanced (CP3.6) configuration. Same schedule/augmentation
 # as DenseNet201; only the backbone differs. label_smoothing is exposed here and
 # defaults to the shared 0.1 (adjust to the notebook value if reproducing that
 # exact run).

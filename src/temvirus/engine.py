@@ -1,4 +1,4 @@
-"""Training engine — scheduler, train/eval loops, the ``fit`` driver, and
+"""Training engine, scheduler, train/eval loops, the ``fit`` driver, and
 checkpointing. Ported from the CP3.6 block; torch imported lazily.
 
 ``fit`` runs the warmup→cosine-restart schedule, mixup-augmented AMP training,
@@ -26,7 +26,7 @@ def get_device(prefer: str | None = None):
 
 
 class WarmupCosineRestartScheduler:
-    """Linear warmup then CosineAnnealingWarmRestarts — verbatim from CP3.6."""
+    """Linear warmup then CosineAnnealingWarmRestarts, verbatim from CP3.6."""
 
     def __init__(self, optimizer, warmup_epochs=5, warmup_start_lr=1e-6,
                  base_lr=1e-4, min_lr=1e-6, t_0=10, t_mult=2):

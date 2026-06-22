@@ -59,7 +59,7 @@ def main():
         bdf = pd.read_csv(args.baseline_csv)
         baseline = nested(bdf, autodetect_accuracy_col(bdf))
     else:
-        print("[note] no baseline CSV provided — baseline comparisons will be empty.")
+        print("[note] no baseline CSV provided, baseline comparisons will be empty.")
 
     protocols = [p for p in ["A", "B_G14", "A_clean_strict", "C_G09"] if p in ens] or sorted(ens)
     rows = []

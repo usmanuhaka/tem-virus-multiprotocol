@@ -1,4 +1,4 @@
-"""Mixup — ported verbatim from CP3.6."""
+"""Mixup, ported verbatim from CP3.6."""
 from __future__ import annotations
 
 import numpy as np
