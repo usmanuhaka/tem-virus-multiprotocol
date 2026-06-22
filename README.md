@@ -1,11 +1,13 @@
 # Multi-Protocol Re-Evaluation of TEM Virus Image Classification
 
+[![DOI](https://zenodo.org/badge/1276279972.svg)](https://doi.org/10.5281/zenodo.20794278)
+
 Code, source-aware split manifests, and results for the paper:
 
 > **Multi-Protocol Re-Evaluation of TEM Virus Image Classification with Source-Aware Splits and Ensemble Learning**
 > Muhammad Haq Usmanuhaka. *Scientific Journal of Informatics (SJI)*, Universitas Negeri Semarang, 2026 (under review).
 
-**Links:** [Live demo](https://temvirusmultiprotocol.streamlit.app) · [Model weights (Release v1.0.0)](https://github.com/usmanuhaka/tem-virus-multiprotocol/releases/tag/v1.0.0) · [Dataset (Mendeley Data)](https://doi.org/10.17632/x4dwwfwtw3.3)
+**Links:** [Live demo](https://temvirusmultiprotocol.streamlit.app) · [Model weights (Release v1.0.0)](https://github.com/usmanuhaka/tem-virus-multiprotocol/releases/tag/v1.0.0) · [Dataset (Mendeley Data)](https://doi.org/10.17632/x4dwwfwtw3.3) · [Archive (Zenodo)](https://doi.org/10.5281/zenodo.20794278)
 
 This project re-evaluates transmission electron microscopy (TEM) virus image
 classification on the public Matuszewski & Sintorn corpus. The standard random
@@ -164,7 +166,10 @@ curl -L -o weights/best.pt \
 
 Release page:
 [v1.0.0](https://github.com/usmanuhaka/tem-virus-multiprotocol/releases/tag/v1.0.0).
-A permanent Zenodo archive (with a citable DOI) will be added on publication.
+The repository source is archived on Zenodo with a citable DOI
+([10.5281/zenodo.20794278](https://doi.org/10.5281/zenodo.20794278)); the Zenodo
+snapshot covers the repository source, while these weights remain the Release
+asset above.
 
 ---
 

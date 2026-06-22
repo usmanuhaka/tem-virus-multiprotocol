@@ -4,7 +4,18 @@ title: "Multi-Protocol Re-Evaluation of TEM Virus Image Classification with Sour
 authors:
   - family-names: "Usmanuhaka"
     given-names: "Muhammad Haq"
-# Update these fields on acceptance:
+version: "1.0.1"
+doi: "10.5281/zenodo.20794278"
+repository-code: "https://github.com/usmanuhaka/tem-virus-multiprotocol"
+license: MIT
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.20794278"
+    description: "Concept DOI (resolves to the latest version)"
+  - type: doi
+    value: "10.5281/zenodo.20794279"
+    description: "Version 1.0.1 (archived from GitHub release v1.0.1)"
+# Journal DOI to be added on acceptance:
 year: 2026
 journal: "Scientific Journal of Informatics (SJI), Universitas Negeri Semarang"
 # doi: "10.15294/sji.vXX.XXXXX"
