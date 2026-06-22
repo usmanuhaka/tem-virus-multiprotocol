@@ -1,0 +1,18 @@
+# Protocol -> manifest file (under data/splits/) and the seeds used.
+# A and B-G14 use 5 seeds; A-clean-strict and C-G09 use 3 seeds.
+A:
+  manifest: protocol_A_official.csv
+  seeds: [42, 123, 456, 789, 1024]
+  description: Dataset's original crop-level train/val/test split.
+B_G14:
+  manifest: protocol_B_G14.csv
+  seeds: [42, 123, 456, 789, 1024]
+  description: Source-aware split grouped by RAW source image (G14_RAWSource).
+A_clean_strict:
+  manifest: protocol_A_clean_strict.csv
+  seeds: [42, 123, 456]
+  description: Protocol A minus the 8 exact-duplicate (Hamming-0) crop pairs.
+C_G09:
+  manifest: protocol_C_G09.csv
+  seeds: [42, 123, 456]
+  description: Source-aware split grouped by acquisition date + magnification.

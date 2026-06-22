@@ -5,6 +5,8 @@ Code, source-aware split manifests, and results for the paper:
 > **Multi-Protocol Re-Evaluation of TEM Virus Image Classification with Source-Aware Splits and Ensemble Learning**
 > Muhammad Haq Usmanuhaka. *Scientific Journal of Informatics (SJI)*, Universitas Negeri Semarang, 2026 (under review).
 
+**Links:** [Live demo](https://temvirusmultiprotocol.streamlit.app) · [Model weights — Release v1.0.0](https://github.com/usmanuhaka/tem-virus-multiprotocol/releases/tag/v1.0.0) · [Dataset — Mendeley Data](https://doi.org/10.17632/x4dwwfwtw3.3)
+
 This project re-evaluates transmission electron microscopy (TEM) virus image
 classification on the public Matuszewski & Sintorn corpus. The standard random
 crop-level split leaks visually near-identical crops from the same source image
@@ -56,24 +58,29 @@ the signed-rank test is underpowered at these seed counts).
 
 ```
 tem-virus-multiprotocol/
-├── notebooks/                         # Reproducible pipeline (outputs stripped)
+├── src/temvirus/                     # Reproduction code (clean, deterministic package)
+├── scripts/                          # CLI: train / evaluate / ensemble / stats / verify_splits
+├── configs/                          # YAML configs (densenet201, effnetv2s, protocols)
+├── notebooks/                        # Experimental record / research log (outputs stripped)
 │   ├── 01_phase1_dataset_verification_densenet201_baseline.ipynb
 │   └── 02_phase2_4_equivariant_sweep_tta_mixup_ensemble.ipynb
 ├── data/
-│   └── splits/                        # Source-aware split manifests (one row per crop)
+│   └── splits/                       # Source-aware split manifests (one row per crop)
 │       ├── protocol_A_official.csv
 │       ├── protocol_B_G14.csv
 │       ├── protocol_A_clean_strict.csv
 │       └── protocol_C_G09.csv
 ├── results/
-│   ├── tables/                        # Paper tables 1-6 (CSV)
-│   ├── summaries/                     # Per-seed metrics, paired deltas, stats, ensemble
-│   └── figures/                       # Headline figures (PNG)
-├── app/                               # Streamlit inference demo
+│   ├── tables/                       # Paper tables 1-6 (CSV)
+│   ├── summaries/                    # Per-seed metrics, paired deltas, stats, ensemble
+│   └── figures/                      # Headline figures (PNG)
+├── app/                              # Streamlit inference demo
 │   ├── streamlit_app.py
 │   ├── requirements.txt
 │   └── README.md
-├── requirements.txt
+├── REPRODUCE.md                      # How to reproduce with src/ + scripts/
+├── requirements.txt                  # Notebook / runtime deps
+├── requirements-repro.txt            # Reproduction-pipeline deps
 ├── CITATION.cff
 └── LICENSE
 ```
@@ -89,12 +96,12 @@ classification,"* Computer Methods and Programs in Biomedicine 209, 106318,
 It contains 14 virus classes; this project uses the
 `context_virus_1nm_256x256` crops.
 
-This repository ships only the **split manifests**, not the images. Obtain the
-dataset from the source above (the dataset is governed by its own license),
-then point the manifests at your local copy.
-
-> **Add the exact dataset download URL here** once confirmed (e.g., the Zenodo
-> record or supplementary link from the dataset paper).
+This repository ships only the **split manifests**, not the images. Download the
+images from **Mendeley Data** —
+[data.mendeley.com/datasets/x4dwwfwtw3](https://data.mendeley.com/datasets/x4dwwfwtw3/3)
+([doi:10.17632/x4dwwfwtw3.3](https://doi.org/10.17632/x4dwwfwtw3.3)), governed by
+its own license — then remap the `filepath` column in each manifest to your local
+dataset root.
 
 ### Split manifest columns
 
@@ -114,56 +121,65 @@ Each `data/splits/*.csv` has one row per crop:
 
 ## Reproducing the experiments
 
-1. **Environment**
+This repository separates the **reproduction code** from the **experimental
+record**:
 
-   ```bash
-   python -m venv .venv && source .venv/bin/activate
-   pip install -r requirements.txt
-   ```
+- **Reproduction code — [`src/temvirus/`](src/temvirus) + [`scripts/`](scripts)**
+  is the entry point: a clean, deterministic, Colab-free reimplementation of the
+  exact method (model, augmentation, warm-restart schedule, mixup, 4-view TTA,
+  softmax ensemble, statistics), with no change to any hyperparameter or result.
+  Full step-by-step commands are in **[`REPRODUCE.md`](REPRODUCE.md)**:
 
-   The notebooks were developed on Google Colab (NVIDIA L4 GPU). Live,
-   executed copies with outputs are linked in the paper's Code Availability
-   statement.
+  ```bash
+  pip install -r requirements-repro.txt
+  python scripts/verify_splits.py --splits-dir data/splits        # validate splits (no data/GPU)
+  python scripts/train.py    --model densenet201 --protocol A --seed 42 --data-root <DATA> --out outputs/
+  python scripts/evaluate.py --checkpoint outputs/densenet201_A_seed42_best.pt --model densenet201 --protocol A --split test --data-root <DATA> --out outputs/
+  python scripts/ensemble.py --protocol A --seed 42 --dense-val ... --dense-test ... --effnet-val ... --effnet-test ... --out outputs/
+  python scripts/stats.py    --seed-level results/summaries/CP4_ensemble_seed_level.csv --out results/summaries/statistical_tests_results.csv
+  ```
 
-2. **Phase 1** — `notebooks/01_...baseline.ipynb`: dataset verification,
-   crop→RAW mapping, near-duplicate detection, source-aware split construction,
-   and the multi-seed DenseNet201 baseline.
+- **Experimental record — [`notebooks/`](notebooks)** is the research log
+  (exploration, recovery/resume, stale outputs) and is coupled to Colab/Drive
+  paths; it is **not** meant to run end-to-end with *Run All*. See
+  [`notebooks/README.md`](notebooks/README.md).
 
-3. **Phases 2–4** — `notebooks/02_...ensemble.ipynb`: equivariant baseline,
-   architecture sweep, the TTA + mixup pipeline, multi-seed runs across all
-   protocols, and the two-model softmax ensemble. Tables and figures are
-   regenerated here.
-
-Set the dataset root and (in Colab) mount Drive at the top of each notebook.
+The four protocol splits are **shipped** as manifests so everyone reproduces the
+identical partitions. GPU strongly recommended for training (the original runs
+used an NVIDIA L4).
 
 ---
 
 ## Pretrained weights
 
-The DenseNet201 + TTA + mixup weights (`best.pt`, ~74 MB per seed) are **not**
-committed to git. Distribute them via a GitHub Release or a Zenodo archive and
-download into `weights/`:
+The shipped DenseNet201 + TTA + mixup weights (`best.pt`, ~74 MB; Protocol A,
+seed 42) are distributed via a **GitHub Release**, not committed to git.
+Download them into `weights/`:
 
 ```bash
 mkdir -p weights
-# Example (replace with your Release/Zenodo URL):
-# curl -L -o weights/best.pt "<RELEASE_OR_ZENODO_URL>/best.pt"
+curl -L -o weights/best.pt \
+  https://github.com/usmanuhaka/tem-virus-multiprotocol/releases/download/v1.0.0/best.pt
 ```
 
-> **Add the weights download URL here** after creating a Release / Zenodo
-> record.
+Release page:
+[v1.0.0](https://github.com/usmanuhaka/tem-virus-multiprotocol/releases/tag/v1.0.0).
+A permanent Zenodo archive (with a citable DOI) will be added on publication.
 
 ---
 
 ## Streamlit demo
 
 A single-model classifier (DenseNet201 + TTA + mixup, Protocol A) that takes a
-TEM crop and returns the predicted virus class with calibrated 4-view TTA.
+TEM crop and returns the predicted virus class with 4-view TTA. Try it live:
+**[temvirusmultiprotocol.streamlit.app](https://temvirusmultiprotocol.streamlit.app)**.
+
+Run locally:
 
 ```bash
 pip install -r app/requirements.txt
-# point the app at your weights (sidebar) or:
-export WEIGHTS_PATH=weights/best.pt
+export WEIGHTS_PATH=weights/best.pt        # local checkpoint, or:
+export WEIGHTS_URL=https://github.com/usmanuhaka/tem-virus-multiprotocol/releases/download/v1.0.0/best.pt
 streamlit run app/streamlit_app.py
 ```
 

@@ -1,0 +1,26 @@
+# EfficientNetV2-S — enhanced (CP3.6) configuration. Same schedule/augmentation
+# as DenseNet201; only the backbone differs. label_smoothing is exposed here and
+# defaults to the shared 0.1 (adjust to the notebook value if reproducing that
+# exact run).
+model: effnetv2s            # timm: tf_efficientnetv2_s.in21k_ft_in1k
+img_size: 224
+batch_size: 32
+num_workers: 4
+max_epochs: 35
+
+base_lr: 1.0e-4
+warmup_start_lr: 1.0e-6
+min_lr: 1.0e-6
+weight_decay: 1.0e-4
+warmup_epochs: 5
+t_0: 10
+t_mult: 2
+
+label_smoothing: 0.1
+grad_clip_max_norm: 1.0
+
+mixup_alpha: 0.2
+mixup_prob: 0.5
+
+early_stop_patience: 10
+pretrained: true
